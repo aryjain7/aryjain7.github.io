@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aryav Jain | Professional Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+    /* Base Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f7f9fc;
+      color: #222f3e;
+      line-height: 1.6;
+    }
+    /* Header / Nav */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(44, 62, 80, 0.92);
+      backdrop-filter: saturate(180%) blur(10px);
+      z-index: 999;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #dff6ff;
+      font-weight: 700;
+      font-size: 1.2rem;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    header.solid {
+      background-color: #2c3e50;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    nav a {
+      color: #dff6ff;
+      text-decoration: none;
+      margin-left: 2rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      border-bottom: 3px solid transparent;
+      padding-bottom: 5px;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    nav a:hover,
+    nav a.active {
+      color: #56a0d3;
+      border-bottom-color: #56a0d3;
+    }
+    /* Hero Intro Section */
+    #home {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 0 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #d4e6f1, #1f2f44);
+      color: #dff6ff;
+      user-select: none;
+    }
+    #home h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    #home p.typing {
+      font-size: 1.6rem;
+      font-family: 'Courier New', Courier, monospace;
+      letter-spacing: 0.07em;
+      min-height: 2rem;
+      margin-bottom: 3rem;
+      color: #aad4fb;
+      user-select: text;
+      white-space: nowrap;
+      border-right: 2px solid #aad4fb;
+      animation: blinkCaret 1.1s steps(1) infinite;
+    }
+    @keyframes blinkCaret {
+      0%,
+      100% {
+        border-color: transparent;
+      }
+      50% {
+        border-color: #aad4fb;
+      }
+    }
+    #home button {
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 35px;
+      background-color: #56a0d3;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    #home button:hover {
+      background-color: #3a7cb1;
+    }
+    /* Main Content */
+    main.content {
+      max-width: 900px;
+      margin: 140px auto 60px;
+      padding: 0 20px 40px;
+      color: #222f3e;
+    }
+    /* Section Titles */
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #1a2d4d;
+      border-bottom: 3px solid #56a0d3;
+      padding-bottom: 0.3rem;
+      user-select: none;
+    }
+    /* About Me Section */
+    #about-me {
+      margin-bottom: 3rem;
+      background: #bdd7ea;
+      padding: 1.8rem 2rem;
+      border-radius: 10px;
+      color: #1a2d4d;
+      font-weight: 400;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      user-select: text;
+    }
+    /* Subtitles */
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: #2c3e50;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .date {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #5b7c9e;
+      font-style: italic;
+      min-width: 120px;
+      text-align: right;
+      user-select: text;
+    }
+    /* Lists */
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 2.5rem;
+      color: #34495e;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    ul li {
+      margin-bottom: 0.4rem;
+    }
+    /* Grid for experience */
+    .grid-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    @media (max-width: 700px) {
+      .grid-two {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* Cards */
+    .card {
+      box-shadow: 0 4px 10px rgba(28, 52, 85, 0.15);
+      background-color: #eaf2fa;
+      border-radius: 10px;
+      padding: 1.2rem 1.6rem;
+      transition: box-shadow 0.3s ease;
+      user-select: text;
+    }
+    .card:hover {
+      box-shadow: 0 8px 25px rgba(28, 52, 85, 0.35);
+    }
+    /* GPA bar */
+    .gpa-bar {
+      background-color: #bed7ec;
+      border-radius: 20px;
+      overflow: hidden;
+      width: 270px;
+      height: 26px;
+      box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.15);
+      margin-top: 0.6rem;
+      user-select: none;
+    }
+    .gpa-fill {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, #56a0d3, #3a7cbc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: 700;
+      border-radius: 20px 0 0 20px;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      user-select: text;
+    }
+    /* Contact */
+    #contact {
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 2px solid #56a0d3;
+      text-align: center;
+      color: #1a2d4d;
+    }
+    #contact h2 {
+      margin-bottom: 20px;
+      color: #34495e;
+      user-select: none;
+    }
+    #contact p {
+      margin-bottom: 10px;
+      font-weight: 400;
+      font-size: 1.1rem;
+      user-select: text;
+    }
+    #contact a {
+      color: #3a7cbc;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    #contact a:hover {
+      text-decoration: underline;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      margin: 30px 0 15px;
+      font-weight: 400;
+      color: #95a5a6;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>ARYAV JAIN</div>
+    <nav class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about-me">About Me</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#honors">Honors</a>
+      <a href="#interests">Interests</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <section id="home"
+    style="height:100vh; display:flex; justify-content:center; align-items:center; flex-direction:column; padding: 0 25px; background: linear-gradient(135deg,#4f6d9c 0%,#d1dcf2 100%); color: #fff; text-align:center;">
+    <h1 style="font-size: 4rem; font-weight: 700; margin-bottom: 0.8rem;">Aryav Jain</h1>
+    <p style="font-family: monospace; font-size: 2rem; user-select:text;">Finance and Actuarial Science Student</p>
+    <button onclick="document.getElementById('about-me').scrollIntoView({behavior:'smooth'})"
+      aria-label="About Me Section"
+      style="margin-top:30px; padding: 1rem 2.5rem; font-weight:700; font-size:1.2rem; border:none; border-radius:30px; background: #3a5999; cursor:pointer; color:white; transition: background-color 0.3s ease;">Learn
+      About Me</button>
+  </section>
+  <main class="content" role="main" aria-label="Resume content">
+    <!-- About Me -->
+    <section id="about-me" tabindex="0">
+      <h2>About Me</h2>
+      <div class="card" style="background:#f0f4fc; color:#333;">
+        <p>
+          I am a finance and actuarial science student at Florida State University with a deep interest in private markets and venture capital. I enjoy applying analytical thinking and data driven methods to solve problems and guide strategic decision making, and I’m motivated by opportunities to create long-term impact through business and innovation.
+        </p>
+        <p>
+          Outside the classroom, I thrive in leadership roles, from founding my school’s FBLA chapter to leading charitable initiatives that bring people together for a greater purpose. These experiences have taught me the value of initiative, collaboration, and adaptability, qualities I carry into every academic, professional, and community endeavor.
+        </p>
+	 <p>
+          What drives me most is the chance to connect numbers with people, strategy with purpose, and ambition with service, shaping solutions that are not only effective, but meaningful.
+        </p>
+      </div>
+    </section>
+    <!-- Education -->
+    <section id="education" tabindex="0">
+      <h2>Education</h2>
+      <div class="card">
+        <h3>Florida State University &mdash; Bachelor of Science: Finance and Actuarial Science <span
+            class="date">Expected Graduation: May 2029</span></h3>
+        <p>Participant of Honors Program, Business Live-Learn-Community, The Finance Society.</p>
+        <p><strong>GPA:</strong> 4.0/4.0</p>
+        <div class="gpa-bar" aria-label="GPA Progress Bar">
+          <div class="gpa-fill">4.0 GPA</div>
+        </div>
+      </div>
+    </section>
+    <!-- Experience -->
+    <section id="experience" tabindex="0">
+      <h2>Professional Experience</h2>
+      <div class="grid-two">
+        <article class="card">
+          <h3>Business Development & Venture Relations Intern - ReplyQuickAI (Remote) <span class="date">Jul 2025 - Present</span></h3>
+          <ul>
+            <li>Prospected 200+ startups and SMBs, generating over 40 qualified leads for demo meetings, partnerships, and fundraising outreach.</li>
+            <li>Built and managed CRM pipelines to track engagement across key accounts, improving conversion rate by 30% month over month.</li>
+            <li>Supported founder with investor research, pitch prep, and business development strategy in a fast paced SaaS environment.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Business Development Intern - FinDash (Remote) <span class="date">Jul 2025 - Present</span></h3>
+          <ul>
+            <li>Conducted market research and lead generation across 100+ RIAs, CFPs, and wealth management firms to identify high potential B2B prospects.</li>
+            <li>Supported outreach and customer engagement efforts, driving awareness and user acquisition across key segments.</li>
+            <li>Collaborated on sales and marketing strategy while refining CRM workflows and improving pipeline efficiency.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Venture Capitalist Intern - Venley Capital (Remote) <span class="date">Jun 2025–Present</span></h3>
+          <ul>
+            <li>Sourced 200+ LPs across family offices and institutional allocators to support $15M capital raise; maintained CRM and tracked investor conversations.</li>
+            <li>Built and maintained investor pipelines using CRM platforms, improving deal flow tracking and outreach conversion by 25%.</li>
+            <li>Drafted investor-facing materials including pitch decks, newsletters, and fund updates tailored to global LP audiences.</li>
+            <li>Collaborated on capital raising strategy, gaining hands on experience in investor targeting and private markets execution.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Investment Banking Summer Analyst - Capital Square Advisors Private Limited, Mumbai, India <span
+              class="date">Jun 2025–Aug 2025</span></h3>
+          <ul>
+            <li>Built company profiles and industry comps to support CIMs, pitchbooks, and M&A decks for live sell-side and capital raise mandates.</li>
+            <li>Gained exposure to M&A, capital raising, and restructuring advisory process in a boutique investment bank.</li>
+            <li>Conducted valuation using DCF and trading comparables for a $40M software M&A transaction; assisted in buyer list creation and strategic rationale assessment.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Part-Time Sales Associate - Aeropostale, Jacksonville, FL <span class="date">Sep 2024–Present</span></h3>
+          <ul>
+            <li>Delivered high-volume customer service in a fast-paced retail environment, managing transactions, addressing inquiries, and driving customer satisfaction across all zones.</li>
+            <li>Supported store operations and presentation, contributing to daily sales targets and overall team efficiency.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Summer Intern – Dysruptek & Virtual Design and Construction - Haskell, Jacksonville, FL <span
+              class="date">Jun 2024–Aug 2024</span></h3>
+          <ul>
+            <li>Analyzed $500K+ in capital allocation for innovation initiatives; built Excel models to track budgeting, resource planning, and financial performance metrics.</li>
+            <li>Contributed to 3D modeling and digital construction sequencing using VDC tools, improving timeline accuracy and design-to-build alignment.</li>
+            <li>Managed $10K infrastructure project as part of Green Apple Day; led cost planning, supply chain logistics, and coordination for a Title I elementary school.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Robotics Coach - Shiva Robotics, Jacksonville, FL <span class="date">Sep 2023–May 2024</span></h3>
+          <ul>
+            <li>Selected through the Mayor’s Youth at Work Program to independently lead a middle school robotics team, managing all phases from designing to programming.</li>
+            <li>Coached a team of 8+ students to secure 3 regional awards, including 1st place in Innovation for a mobility assistive tech solution.</li>
+            <li>Created impact board highlighting technical strategy and societal relevance for competition judging.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Tutor - Kumon, Jacksonville, FL <span class="date">Jul 2022–Jan 2023, Jul 2023–Dec 2023</span></h3>
+          <ul>
+            <li>Instructed 100+ students in math and reading, developing strong analytical and communication skills through high-volume academic support.</li>
+            <li>Processed and graded 15,000+ worksheets with 100% accuracy, maintaining academic records for 250+ students.</li>
+            <li>Ensured alignment with evolving curriculum standards by regularly updating and organizing learning materials.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <!-- Leadership -->
+    <section id="leadership" tabindex="0">
+      <h2>Leadership</h2>
+      <div class="card">
+        <h3>Future Business Leaders of America (FBLA, Founder & President) <span class="date">Aug 2023 – Jun 2025</span></h3>
+        <ul>
+          <li>Founded and led the school’s FBLA chapter, managing operations, training, and competition prep from the ground up.</li>
+          <li>Guided members to qualify for state-level competitions; created workshops and mentorship programs focused on finance, entrepreneurship, and strategy.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>UmmidAHope Foundation, President <span class="date">Jan 2024–Jan 2025</span></h3>
+        <ul>
+          <li>Organized charitable drives delivering food, toiletries, and essentials to underserved groups through the City Rescue Mission and Pace Center for Girls.</li>
+          <li>Led fundraising campaigns supporting rural communities in India, providing access to education, housing, and necessities for children in need.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Hindu Society of Northeast Florida, Ripples Outreach Leader <span class="date">Jan 2024–Jan 2025</span></h3>
+        <ul>
+          <li>Led service initiatives and large-scale community events, managing logistics, outreach, and a youth volunteer team for a temple-affiliated leadership group.</li>
+          <li>Oversaw fundraising, marketing, and post-event strategy, contributing significant donations to the temple operation and strengthening community engagement.</li>
+        </ul>
+      </div>
+    </section>
+    <!-- Honors -->
+    <section id="honors" tabindex="0">
+      <h2>Honors & Certifications</h2>
+      <ul class="honors-list">
+        <li>Business Live-Learn-Community, University Honors Program, Highschool IB Program</li>
+        <li>Florida Bright Futures Medallion Scholar, Presidential Volunteer’s Service Award Gold</li>
+        <li>Certifications: Create a Financial Statement using Microsoft Excel, Discounted Cash Flow Modeling, Investment Risk Management</li>
+      </ul>
+    </section>
+    <!-- Interests -->
+    <section id="interests" tabindex="0">
+      <h2>Interests</h2>
+      <p class="interests">Water Sports, Creative Writing, Snowboarding, Golf, Chess, Billiards</p>
+    </section>
+    <!-- Contact -->
+    <section id="contact" tabindex="0" role="contentinfo">
+      <h2>Contact Me</h2>
+      <p><strong>Email:</strong> <a href="mailto:aryavja@gmail.com">aryavja@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+19045179804">(904) 517-9804</a></p>
+      <p><strong>Location:</strong> Tallahassee, FL</p>
+      <p><strong>Resume:</strong> <a href="https://drive.google.com/file/d/11nseLcU7lQUUaMwojrhXgjy1U693no17/view?usp=sharing"
+          target="_blank" rel="noopener noreferrer">View My Resume (PDF)</a></p>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Aryav Jain &bull; <a href="mailto:aryavja@gmail.com">aryavja@gmail.com</a>
+  </footer>
+  <script>
+    const navLinks = document.querySelectorAll('header nav a');
+    const header = document.querySelector('header');
+    function onScroll() {
+      const scrollPos = window.scrollY + 90;
+      if(scrollPos > 50) {
+        header.classList.add('solid');
+      } else {
+        header.classList.remove('solid');
+      }
+      navLinks.forEach(link => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          const top = target.offsetTop;
+          const bottom = top + target.offsetHeight;
+          if (scrollPos >= top && scrollPos < bottom) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        }
+      });
+    }
+    window.addEventListener('scroll', onScroll);
+  </script>
+</body>
+</html>
